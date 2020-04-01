@@ -10,6 +10,9 @@ h1, h2 {
   align-self: center;
   color: #802412;
 }
+p{
+  text-align: center;
+}
 
 input[type=submit], .delete_button{
   margin:2rem;
@@ -53,8 +56,8 @@ input[type=submit]:hover, .delete_button:hover{
   flex-direction: column;
   justify-content:space-between;
   align-items: center;
-  max-width: 80%;
-  min-width: 30%;
+  max-width: 600px;
+  min-width: 200px;
   border-style:solid;
   border-width: 1px;
   border-color: #e8e8e8;
@@ -71,6 +74,15 @@ input[type=submit]:hover, .delete_button:hover{
   height:150px;
 }
 
+.student_select {
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.student_select:hover {
+  background-color: #cc5747;
+}
 
 nav{
   align-self: center;
