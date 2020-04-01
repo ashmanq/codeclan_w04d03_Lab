@@ -1,0 +1,29 @@
+<div class="list">
+
+  <form action="/students" method="POST">
+    <div class="cell">
+      <label for="first_name">First Name</label>
+      <input id="first_name" name="first_name" type="text" placeholder="First Name" required>
+    </div>
+    <div class="cell">
+      <label for="last_name">Last Name</label>
+      <input id="last_name" name="last_name" type="text" placeholder="Last Name" required>
+    </div>
+    <div class="cell">
+      <label for="age">Age</label>
+      <input id="age" name="age" type="number" placeholder="Age" required>
+    </div>
+    <div class="cell">
+      <label for="house_id">House</label>
+        <select name="house_id" id="house_id">
+          <% for house in @houses %>
+          <option value="<%= house.id %>"><%= house.name %></option>
+          <% end %>
+        </select>
+    </div>
+    <div class="cell">
+      <input id="new_button" type="submit" value="Add Student">
+    </div>
+  </form>
+
+</div>
