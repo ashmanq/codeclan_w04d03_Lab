@@ -4,14 +4,13 @@
 <div class="list">
     <% for student in @students %>
     <div  class="cell">
-      <p>Name: <%= student.full_name()%></p>
-      <p>House: <%= student.find_house.name %></p>
-      <p>Age: <%= student.age %></p>
+      <p><%= student.full_name()%></p>
+      <!-- <p>House: <%= student.find_house.name %></p>
+      <p>Age: <%= student.age %></p> -->
       <p><img class="logo" src="<%= student.find_house.logo %>" alt="<%= student.find_house.name %> logo"></p>
-      <!-- <p>
-      <a href="/students/<%= student.id %>">Show Student Details</a>
-      </p> -->
-      <!-- <hr> -->
+      <p>
+      <a href="/students/<%= student.id %>/edit">Details</a>
+      </p>
     </div>
     <% end %>
 <div>

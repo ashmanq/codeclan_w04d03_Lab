@@ -35,13 +35,37 @@ class Student
     @id = SqlRunner.run(sql, values).first['id']
   end
 
+  def update()
+    sql = "UPDATE students
+          SET
+          (
+            first_name,
+            last_name,
+            house_id,
+            age
+          )
+          =
+          (
+            $1, $2, $3, $4
+          )
+          WHERE id = $5"
+    values = [@first_name, @last_name, @house_id, @age, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete()
+    sql = "Delete FROM students WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM students"
     SqlRunner.run(sql)
   end
 
   def self.find_all()
-    sql = "SELECT * FROM students"
+    sql = "SELECT * FROM students ORDER BY last_name"
     student_results = SqlRunner.run(sql)
     return nil if student_results.first == nil
     return student_results.map {|student| Student.new(student)}
@@ -58,6 +82,14 @@ class Student
   def find_house()
     house = House.find(@house_id)
     return house
+  end
+
+  def check_house_id(id)
+    if id == @house_id
+      return "selected"
+    else
+      return ""
+    end
   end
 
 end

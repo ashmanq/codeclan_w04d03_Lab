@@ -19,12 +19,34 @@ get '/students/new' do
   erb(:new)
 end
 
+# DELETE
+get '/students/delete/:id' do
+  id = params['id']
+  student = Student.find(id)
+  student.delete
+  redirect('/students')
+end
+
+# EDIT
+get '/students/:id/edit' do
+  id = params['id'].to_i
+  @student = Student.find(id)
+  @houses = House.find_all()
+  erb(:edit)
+end
 
 
-# POST
 
+# POST NEW
 post '/students' do
   student = Student.new(params)
   student.save()
   redirect to '/students'
+end
+
+# POST UPDATE
+post '/students/:id' do
+  student = Student.new(params)
+  student.update()
+  redirect('/students')
 end
